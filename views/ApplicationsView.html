@@ -1,0 +1,52 @@
+<style>
+	#wrapper {
+	    padding-left: 0;
+	    -webkit-transition: all 0.5s ease;
+	    -moz-transition: all 0.5s ease;
+	    -o-transition: all 0.5s ease;
+	    transition: all 0.5s ease;
+}
+
+</style>
+<div class="wrapper" id="wrapper">
+	<div id="sidebar-wrapper" style="margin-top: -40px!important;" >
+		<div class="dropdown">
+    		<button class="btn btn-default dropdown-toggle" style="width: 250px" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Applications
+          <span class="caret"></span>
+    		</button>
+	      	<ul class="dropdown-menu" style="width: 250px;    background-color: darkgray; display: block;" aria-labelledby="dropdownMenu1">
+	          <li ng-repeat="x in myWelcome| unique: 'Application'|orderBy:'Application'"><a style="" ng-click="setApplication(x.Application)">{{x.Application}}</a></li>
+	     	</ul>
+		</div>
+	</div>
+</div>
+
+<div>
+	<h3 style="text-align: center;">Application: <b>{{application}}</b></h3>
+    <div  style="margin-left: 35%;margin-top: 90px">
+	  	<ul id="navlist" ng-repeat="x in myPLMData |filterBy:['Application']:application">
+	  		<li style="list-style-type: none;"><a style="text-decoration: underline;font-size: large;" ng-click="setEnvironment(x.Environment)" href="#Info">{{x.Environment}}</a></li>
+	  	</ul>
+	</div>
+</div>
+
+<style>
+#navlist {
+    display: block;
+    list-style: none;
+    width: 60%;
+}
+
+#navlist li {
+    float: left;
+    width: 23%;
+    padding-bottom: 10px;
+}
+</style>
+
+<script>
+	$('.dropdown-menu').click(function(event){
+	    event.stopPropagation();
+	});
+</script>

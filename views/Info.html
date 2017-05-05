@@ -1,0 +1,101 @@
+<!-- <h3 style="text-align: center;">Info about builds</h3> -->
+
+<h4 style="text-align: center;">Application: <b><span style="color: blue;text-decoration: underline;"><a  href="#ApplicationsView">{{application}}</a></span></b></h4>
+<h4 style="text-align: center;">Environment: <b>{{env}}</b></h4>
+ 
+<h4><label style="text-align: center; text-decoration: underline; color: blue;">Environment Information</label></h4>
+ 
+<table  class="table" style="margin-top: 0%;margin-bottom: 2%">
+	<thead>
+    	<tr>
+	        <th>Application</th>
+	        <th>Environment</th>
+	        <th>Used for Release</th>
+	        <th>Enovia Version</th>
+	        <th>Fixed Pack</th>
+	        <!-- <th>Latest build</th> -->
+	        <th>Total Build time</th>
+	        <!-- <th>Database Refresh</th> -->
+	        <th>Env. Owner</th>
+	        <th>Build Contact</th>
+	        <!-- <th>Build-Type</th> -->
+	        <th>Notes</th>
+		</tr>
+    </thead>
+    <tr ng-repeat="x in myPLMData1|filter:{Application:application}:false|filter:{Environment:env}:true">
+	    <td>{{x.Application}}</td>
+	    <td>{{x.Environment}}</td>
+	   	<td>{{x['Used for Release']}}</td>
+		<td>{{x['Enovia Version']}}</td>
+		<td>{{x['Fixed Pack']}}</td>
+		<!-- <td>{{x['Latest build']}}</td> -->
+		<td>{{x['Total Build time']}}</td>
+		<!-- <td>{{x['Database Refresh']}}</td> -->
+		<td>{{x['Env. Owner']}}</td>
+		<td>{{x['Build Contact']}}</td>
+		<!-- <td>{{x['Build-Type']}}</td> -->
+		<td>{{x['Notes']}}</td>
+    </tr>
+</table>
+
+<h4><label style="text-align: center; text-decoration: underline; color: blue;">Build History</label></h4>
+  
+<table id="table1" datatable="ng" class="table table-striped table-condensed" dt-options="dtOptions">
+	<thead>
+		<tr>
+	        <th>Build Type</th>
+	        <th>Date</th>
+	        <th>Time</th>
+	        <!-- <th>Application</th> -->
+	        <!-- <th>Environment</th> -->
+	        <th>Release</th>
+	        <th>Publish Type</th>
+	        <th>Total Build Time (In mins.secs)</th>
+            <th>Total Deployment Time (In mins.secs)</th>
+            <th>App Job Duration</th>
+	        <th>Spinner Job Duration</th>
+            <th>App Deployment Duration (In mins.secs)</th>
+            <th>Spinner Deployment Duration (In mins.secs)</th>
+            <th>App Job</th>
+	        <th>Spinner Job</th>
+		</tr>
+    </thead>
+
+    <tbody>
+    	<tr ng-repeat="x in historyData|filter:{Application:application}:false|filter:{Environment:env}:true|orderBy:sortDate : true">
+      		<td>{{x['Build Type']}}</td>
+	        <td>{{x['Date']}}</td>
+	        <td>{{x['Time']}}</td>
+	        <!-- <td>{{x['Application']}}</td> -->
+	        <!-- <td>{{x['Environment']}}</td> -->
+	        <td>{{x['Release']}}</td>
+	        <td>{{x['Publish Type']}}</td>
+            <td>{{x['Total Time (In mins.secs)']}}</td>
+            <td>{{x['Total Deployment Time']}}</td>
+            <td>{{x['App Job Duration']}}</td>
+	        <td>{{x['Spinner Job Duration']}}</td>
+            <td>{{x['App Deployment Time']}}</td>
+            <td>{{x['Spinner Deployment Time']}}</td>
+            <td><a  href="https://jenkins.pw.ge.com/jenkins/job/{{x['App Job Name']}}/{{x['App Job Build Number']}}">{{x['App Job Name']}}({{x['App Job Build Number']}})</a></td>
+            <td><a  href="https://jenkins.pw.ge.com/jenkins/job/{{x['Spinner Job Name']}}/{{x['Spinner Job Build Number']}}">{{x['Spinner Job Name']}}({{x['Spinner Job Build Number']}})</a></td>
+		</tr>
+	</tbody>
+</table>
+    
+<button class="btn btn-link" ng-click="exportToExcel('#table1')">
+    <span class="glyphicon glyphicon-share"></span> Export to Excel
+</button>
+
+<script>
+	$(document).ready( function () {
+	    $('#table').DataTable( {
+	        searchHighlight: true
+	    } );
+	} );
+</script>
+
+<style>
+	td{
+	padding-left: 10px
+	}
+</style>

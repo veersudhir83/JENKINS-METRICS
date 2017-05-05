@@ -1,0 +1,260 @@
+
+
+
+.imgcls {
+	height: 45px;
+	width: 45px;
+	vertical-align: middle;
+	border: 0;
+	box-sizing: border-box;
+	font-family: "ge-inspira", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	font-size: 20px;
+	letter-spacing: 1px;
+	color: #005eb8;
+	position: absolute;
+	bo
+}
+
+#list-menu {
+	padding-left: 10px;
+	padding-top: 10px;
+	height: 28px;
+}
+
+#iconNav {
+	color: #5c5f63 !important;
+}
+
+.right-inner-addon {
+	position: relative;
+}
+
+.right-inner-addon input {
+	padding-right: 30px;
+}
+
+.right-inner-addon i {
+	position: absolute;
+	right: 0px;
+	padding: 10px 10px;
+	pointer-events: none;
+	padding-bottom: 10px
+}
+
+
+/*Visible xs*/
+@media ( max-width :767px) {
+	#mainSec {
+		margin-top: 25px;
+		margin-left: 0px;
+	}
+	.alignLeft{
+	
+	margin-left: 0px!important;
+	
+}
+	
+}
+
+@media
+(
+min-width
+:768px)
+and
+(max-width:991px)
+{
+/*.visible-sm*/
+#mainSec {
+	margin-left: 0px;
+}
+
+}
+@media ( min-width :992px) and (max-width:1199px) { /*.visible-md*/
+}
+
+@media ( min-width :1200px) { /*.visible-lg*/
+}
+
+#mobilenav {
+	color: white !important;
+}
+
+.iconClass {
+	margin-right: 15px
+}
+
+.listBorder {
+	border-top: 1px solid #939393;
+	outline-color: black!important;
+}
+
+
+
+.menuItem {
+	color: white;
+	 background-color: 
+}
+
+.submenuItem {
+	color: white;
+	font-size: 11px!important;
+}
+
+.submenuLink>a:HOVER{
+	
+	background-color: #525156!important;
+	
+}
+
+
+
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+/* 
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    right: 180px;
+    width: 0;
+    height:auto;
+    margin-right: -250px;
+   
+    background: #5c5f63;
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+    margin-top:80px
+} */
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 520px;
+    margin-left: -250px;
+    overflow-y: auto;
+    background:  #5c5f63;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin-top: -45px
+}
+
+
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 180px;
+}
+
+
+
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+
+.menuColor{
+	
+	
+	background-color: #575c61 !important;
+}
+
+ .navbar-nav>.open>#admin:hover {
+	
+	background-color: #575c61 !important;
+	border-left: 5px solid;
+	border-left-color: #e66942;
+	
+	
+	
+}
+
+ .navbar-nav>.open>#general:hover {
+	
+	background-color: #575c61 !important;
+	border-left: 5px solid;
+	border-left-color: #48a23f;;
+}
+
+ .navbar-nav>.open>#user:hover {
+	
+	background-color: #575c61 !important;
+	border-left: 5px solid;
+	border-left-color: #e66942;;
+}
+
+ .navbar-nav>.open>#help:hover {
+	
+	background-color: #575c61 !important;
+	border-left: 5px solid;
+	border-left-color: #1f62aa;;
+}
+
+.nav>li>a {
+	color: white !important;
+}
+
+
+
+
+
+@media(min-width:768px) {
+  
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+       /*  padding: 20px; Naidu Commented*/  
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+

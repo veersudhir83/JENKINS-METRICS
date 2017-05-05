@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>PLM Builds on Jenkins - GE Power & Water</title>
+<meta name="author" content="Sudheer Veeravalli">
+<meta
+	content="Display any CSV file as a searchable, filterable, pretty HTML table" />
+<script src="js/jquery.min.js"></script>
+<script src="angular/angular.min.js"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+<script src="angular/angular-route.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+
+<script src="angular-datatables-master/dist/angular-datatables.min.js"></script>
+<script src="Controllers/mainController.js"></script>
+<script src="bower_components/angular-csv-service/angular-csv-service.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="css/dataTables.bootstrap.css">
+<link rel="stylesheet" href="css/dataTables.searchHighlight.css">
+   <link rel="stylesheet" href="custom.css">
+ <style>
+
+.scrollindicator{
+    width: 100%;
+    height: 7px; /* height of progress bar */
+    display: block;
+    background: yellow;
+    left: 0;
+    bottom: 0; /* dock progress bar to bottom of page (change to "top" for top instead) */
+    cursor: pointer;
+    position: fixed;
+    z-index: 1000000;
+    visibility: hidden;
+    -webkit-transition: height .2s ease;
+    transition: height .2s ease;
+}
+
+.scrollprogress{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: purple; /* background color of progress bar */
+    -webkit-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+    =-webkit-transition: -webkit-transform .4s ease; 
+    transition: transform .4s ease; /* animate progress bar? Remove to disable */
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+
+/***********************************************
+* jQuery Page Scroll Progress Bar v1.0 By Dynamic Drive
+* Project Page: http://www.dynamicdrive.com/dynamicindex3/pagescrollprogressbar.htm
+***********************************************/
+
+jQuery(function($){
+    var growmouseover = [true, '25px'] // magnify progress bar onmouseover? [Boolean, newheight]
+
+///////// No need to edit beyond here /////////
+
+    var $indicatorparts = $(document.body).append('<div class="scrollindicator"><div class="scrollprogress"></div></div>')
+    var $indicatorMain = $indicatorparts.find('div.scrollindicator')
+    var $scrollProgress = $indicatorparts.find('div.scrollprogress')
+    var indicatorHeight = $indicatorMain.outerHeight()
+    var transformsupport = $scrollProgress.css('transform')
+    transformsupport = (transformsupport == "none" || transformsupport =="")? false: true
+
+    function syncscrollprogress(){
+        var winheight = $(window).height()
+        var docheight = $(document).height()
+        var scrollTop = $(window).scrollTop()
+        var trackLength = docheight - winheight
+        var pctScrolled = Math.floor(scrollTop/trackLength * 100) // gets percentage scrolled (ie: 80 NaN if tracklength == 0)
+            $scrollProgress.css('transform', 'translate3d(' + (-100 + pctScrolled) + '%,0,0)')
+    }
+
+    if (transformsupport){
+        $indicatorMain.css('visibility', 'visible')
+
+        $indicatorMain.on('click', function(e){
+            var trackLength = $(document).height() - $(window).height()
+            var scrollamt = e.clientX/($(window).width()-32) * trackLength
+            $('html,body').animate({scrollTop: scrollamt}, 'fast')
+        })
+
+        if (growmouseover[0]){
+            $indicatorMain.on('mouseenter touchstart', function(e){
+                $(this).css('height', growmouseover[1])
+                e.stopPropagation()
+            })
+
+            $indicatorMain.on('mouseleave', function(e){
+                $(this).css('height', indicatorHeight)
+            })
+
+            $(document).on('touchstart', function(e){
+                $indicatorMain.css('height', indicatorHeight)
+            })
+        }
+
+        $(window).on("scroll load", function(){
+            requestAnimationFrame(syncscrollprogress)
+        })
+    }
+})
+
+</script>    
+</head>
+<style>
+	nav>li{
+	color: black;
+	}
+	
+	#home:HOVER{
+	background-color:#337ab7!important;
+	}
+	
+	#home:FOCUS{
+	background-color:#337ab7!important;
+	}
+</style>
+
+<body ng-app="myApp">
+	<nav role="navigation" class="navbar navbar-default">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#/" class="navbar-brand"><b>PLM Builds on Jenkins - GE Power & Water</b></a>
+        </div>
+        <!-- Collection of nav links and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="home" href="#/" class="btn btn-primary" >HOME</a></li>
+            </ul>
+        </div>
+    </nav>
+	<div class="container-fluid">
+		<div ng-view></div>
+	</div>
+</body>
+</html>
