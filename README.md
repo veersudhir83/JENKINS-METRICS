@@ -1,4 +1,4 @@
-# PLM-JENKINS-METRICS
+# JENKINS-METRICS
 
 # How to use:
 # 1. This will be automatically updated every 30 minutes.
@@ -6,5 +6,5 @@
 # 3. Towards the end of each build / deployment, the metrics file gets updated with relevant information.
 
 # Refer to below website for details of builds and deployments:
-# To get build metrics: https://github.build.ge.com/pages/PowerApps/PLM-JENKINS-METRICS/
-# To get a snapshot as highchart: https://github.build.ge.com/pages/PowerApps/PLM-JENKINS-METRICS/highchart.html
+# To get build metrics: https://github.com/pages/veersudhir83/JENKINS-METRICS/
+# To get a snapshot as highchart: https://github.com/pages/veersudhir83/JENKINS-METRICS/highchart.html
