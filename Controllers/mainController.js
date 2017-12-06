@@ -59,7 +59,7 @@ app.controller('MyCtrl', function($scope, $http, $rootScope) {
 
 		});
 
-		console.log("succsess");
+		console.log("success");
 		console.log("Application:" + $rootScope.application)
 		$rootScope.application = testData;
 
@@ -101,14 +101,16 @@ app.controller('InfoCtrl',
 			});
 
 			$http.get("data/PLM_BUILD_METRICS.json").then(function(response) {
-				$scope.historyData = [];                
+				$scope.historyData = response.data;
+				/*$scope.historyData = [];                
                 angular.forEach(response.data,function(val,index){
                     // To Fetch Total Deployment Time
                     if(val['App Deployment Time'] == "") 
                         val['App Deployment Time'] = 0;
-                    if(val['Spinner Deployment Time'] == "") 
-                        val['Spinner Deployment Time'] = 0;
-                    var tempVal = parseInt(parseInt(val['App Deployment Time']) + parseInt(val['Spinner Deployment Time']));
+                    //if(val['Spinner Deployment Time'] == "") 
+                        //val['Spinner Deployment Time'] = 0;
+                    //var tempVal = parseInt(parseInt(val['App Deployment Time']) + parseInt(val['Spinner Deployment Time']));
+					var tempVal = parseInt(parseInt(val['App Deployment Time']));
                     console.log(val['App Job Build Number'] + " tempVal-->" + tempVal);
                     tempVal = parseInt(tempVal/60) + "." + parseInt(tempVal%60);
                     if(tempVal == "0.0")
@@ -117,10 +119,10 @@ app.controller('InfoCtrl',
                     
                     // To Convert time format for App and Spinner Deployment Time
                     val['App Deployment Time'] = parseInt(val['App Deployment Time']/60) + " mins " + val['App Deployment Time']%60 + " secs";
-                    val['Spinner Deployment Time'] = parseInt(val['Spinner Deployment Time']/60) + " mins " + val['Spinner Deployment Time']%60 + " secs";
+                    //val['Spinner Deployment Time'] = parseInt(val['Spinner Deployment Time']/60) + " mins " + val['Spinner Deployment Time']%60 + " secs";
                     
                     $scope.historyData.push(val);
-                });
+                });*/
                     
                 
 			});
