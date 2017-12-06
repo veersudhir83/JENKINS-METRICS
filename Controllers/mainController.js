@@ -47,14 +47,14 @@ app
 //Controller for ApplicationsView Page
 app.controller('MyCtrl', function($scope, $http, $rootScope) {
 
-	$http.get("data/PLM_BUILD_METRICS.json").then(function(response) {
+	$http.get("data/BUILD_METRICS.json").then(function(response) {
 		$scope.myWelcome = response.data;
 
 	});
 
 	$rootScope.setApplication = function(testData) {
 
-		$http.get("data/PLM_ENV_BUILD_INFO.json").then(function(response) {
+		$http.get("data/ENV_INFO.json").then(function(response) {
 			$rootScope.myPLMData = response.data;
 
 		});
@@ -95,12 +95,12 @@ app.controller('InfoCtrl',
 			}
 
 			
-			$http.get("data/PLM_ENV_BUILD_INFO.json").then(function(response) {
+			$http.get("data/ENV_INFO.json").then(function(response) {
 				$scope.myPLMData1 = response.data;
 
 			});
 
-			$http.get("data/PLM_BUILD_METRICS.json").then(function(response) {
+			$http.get("data/BUILD_METRICS.json").then(function(response) {
 				$scope.historyData = response.data;
 				/*$scope.historyData = [];                
                 angular.forEach(response.data,function(val,index){
