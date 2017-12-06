@@ -5,7 +5,7 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'PLM Build Metrics'
+            text: 'Build Metrics'
         },
         subtitle: {
             text: 'Click the columns to view count of builds for each environment'
@@ -43,209 +43,32 @@ $(function () {
             name: 'Builds',
             colorByPoint: true,
             data: [{
-                name: 'AEROPLM',
+                name: 'DEVOPS',
                 y: 383,
-                drilldown: 'AEROPLM'
+                drilldown: 'DEVOPS'
             }, {
-                name: 'ENERGYPLM',
+                name: 'TESTSUITE',
                 y: 787,
-                drilldown: 'ENERGYPLM'
-            }, {
-                name: 'GasEngines',
-                y: 72,
-                drilldown: 'GasEngines'
-            }, {
-                name: 'NuclearPLM',
-                y: 231,
-                drilldown: 'NuclearPLM'
-            }, {
-                name: 'PGSLM',
-                y: 77,
-                drilldown: 'PGSLM'
-            }, {
-                name: 'POWERPLM',
-                y: 578,
-                drilldown: 'POWERPLM'
-            }, {
-                name: 'WINDPLM',
-                y: 1962,
-                drilldown: 'WINDPLM'
+                drilldown: 'TESTSUITE'
             }]
         }],
         drilldown: {
             series: [{
-                name: 'AEROPLM',
-                id: 'AEROPLM',
+                name: 'DEVOPS',
+                id: 'DEVOPS',
                 data: [
                     [
                         'DEV',
                         205
-                    ],
-                    [
-                        'DEV2',
-                        63
-                    ],
-                    [
-                        'QA',
-                        102
-                    ],
-                    [
-                        'QA2',
-                        6
-                    ],
-                    [
-                        'PROD',
-                        7
                     ]
                 ]
             }, {
-                name: 'ENERGYPLM',
-                id: 'ENERGYPLM',
+                name: 'TESTSUITE',
+                id: 'TESTSUITE',
                 data: [
                     [
-                        'DEV1',
+                        'STAGE',
                         42
-                    ],
-                    [
-                        'DEV2',
-                        44
-                    ],
-                    [
-                        'QA1',
-                        527
-                    ],
-                    [
-                        'QA2',
-                        169
-                    ],
-                    [
-                        'BF',
-                        2
-                    ],
-                    [
-                        'PROD',
-                        3
-                    ]
-                ]
-            }, {
-                name: 'GasEngines',
-                id: 'GasEngines',
-                data: [
-                    [
-                        'DEV1',
-                        72
-                    ]
-                ]
-            }, {
-                name: 'NuclearPLM',
-                id: 'NuclearPLM',
-                data: [
-                    [
-                        'DEV',
-                        72
-                    ],
-                    [
-                        'DEV16',
-                        18
-                    ],
-                    [
-                        'QA',
-                        128
-                    ],
-                    [
-                        'PROD',
-                        13
-                    ]
-                ]
-            }, {
-                name: 'PGSLM',
-                id: 'PGSLM',
-                data: [
-                    [
-                        'QA',
-                        15
-                    ],
-                    [
-                        'QA2',
-                        48
-                    ],
-                    [
-                        'PROD',
-                        14
-                    ]
-                ]
-            }, {
-                name: 'POWERPLM',
-                id: 'POWERPLM',
-                data: [
-                    [
-                        'BF',
-                        26
-                    ],
-                    [
-                        'DEV1',
-                        86
-                    ],
-                    [
-                        'DEV2',
-                        208
-                    ],
-                    [
-                        'DEV3',
-                        35
-                    ],
-                    [
-                        'QA1',
-                        54
-                    ],
-                    [
-                        'QA2',
-                        160
-                    ],
-                    [
-                        'PROD',
-                        9
-                    ]
-                ]
-            }, {
-                name: 'WINDPLM',
-                id: 'WINDPLM',
-                data: [
-                    [
-                        'DEV',
-                        405
-                    ],
-                    [
-                        'NEWDEV2',
-                        39
-                    ],
-                    [
-                        'DEV3',
-                        145
-                    ],
-                    [
-                        'DEV4',
-                        146
-                    ],
-                    [
-                        'DEV5',
-                        423
-                    ],
-                    [
-                        'QA',
-                        217
-                    ],
-                    [
-                        'QA2',
-                        335
-                    ],
-                    [
-                        'QA3',
-                        244
-                    ],
-                    [
-                        'PROD',
-                        8
                     ]
                 ]
             }]
